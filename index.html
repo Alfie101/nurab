@@ -164,11 +164,12 @@
         }
 
         /* --- SOCIAL LINKS STYLING --- */
+/* --- SOCIAL LINKS (HIGH CONTRAST VERSION) --- */
 .social-links {
     display: flex;
     gap: 15px;
     margin-top: 30px;
-    flex-wrap: wrap; /* Wraps nicely on small screens */
+    flex-wrap: wrap;
 }
 
 .social-btn {
@@ -176,12 +177,17 @@
     align-items: center;
     gap: 10px;
     text-decoration: none;
-    color: var(--text-light);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    padding: 10px 24px;
-    border-radius: 50px; /* Pill shape */
-    font-size: 0.9rem;
-    font-weight: 500;
+    
+    /* Stronger Colors */
+    background-color: rgba(255, 255, 255, 0.1); /* Slight white fill */
+    border: 1px solid #ffffff; /* Solid white border (No transparency) */
+    color: #ffffff;
+    
+    padding: 12px 28px; /* Slightly bigger touch target */
+    border-radius: 50px;
+    font-size: 0.95rem;
+    font-weight: 600; /* Bolder text */
+    letter-spacing: 0.5px;
     transition: all 0.3s ease;
 }
 
@@ -189,21 +195,22 @@
     transition: transform 0.3s ease;
 }
 
-/* Hover Effects */
+/* Hover Effects - Turns Solid White */
 .social-btn:hover {
-    background-color: var(--text-light);
-    color: var(--bg-dark); /* Invert colors on hover */
-    border-color: var(--text-light);
-    transform: translateY(-3px); /* Float up */
+    background-color: #ffffff;
+    color: #000000; /* Text turns black */
+    border-color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2); /* Glow effect */
 }
 
 .social-btn:hover svg {
-    transform: scale(1.1); /* Icon pops slightly */
+    transform: scale(1.1);
 }
 
-/* Add animation delay so they fade in LAST */
+/* Animation Delay */
 .fade-in-delay {
-    animation: fadeInUp 1.2s ease-out 0.9s forwards; /* 0.9s delay */
+    animation: fadeInUp 1.2s ease-out 0.9s forwards;
     opacity: 0;
 }
 
