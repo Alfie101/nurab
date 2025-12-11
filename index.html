@@ -5,16 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nura B</title>
+    
     <meta property="og:type" content="website">
-<meta property="og:url" content="nurab.co.uk">
-<meta property="og:title" content="A Gift for Nura">
-<meta property="og:description" content="A curated digital space for the head of culture.">
-<meta property="og:image" content="nurab.co.uk/Screenshot%202025-12-11%20at%2020.00.23.png">
+    <meta property="og:url" content="nurab.co.uk">
+    <meta property="og:title" content="A Gift for Nura">
+    <meta property="og:description" content="A curated digital space for the head of culture.">
+    <meta property="og:image" content="nurab.co.uk/Screenshot%202025-12-11%20at%2020.00.23.png">
 
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="A Gift for Nura">
-<meta name="twitter:description" content="A curated digital space for the head of culture.">
-<meta name="twitter:image" content="nurab.co.uk/Screenshot%202025-12-11%20at%2020.00.23.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="A Gift for Nura">
+    <meta name="twitter:description" content="A curated digital space for the head of culture.">
+    <meta name="twitter:image" content="nurab.co.uk/Screenshot%202025-12-11%20at%2020.00.23.png">
+    
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     
     <style>
@@ -99,18 +101,47 @@
             overflow: hidden;
         }
 
+        /* --- SOCIAL LINKS STYLING (High Contrast) --- */
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            /* High contrast styles: White border, slight fill */
+            background-color: rgba(255, 255, 255, 0.1); 
+            border: 1px solid #ffffff; 
+            color: #ffffff;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+
+        .social-btn:hover {
+            background-color: #ffffff;
+            color: #000000; /* Text turns black on hover */
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+        }
+
         /* --- BENTO GRID SECTION --- */
         .bento-section {
             padding: 80px 0;
             background-color: var(--bg-darker); /* Subtle background change */
         }
 
-        /* This is the complex grid layout from the image */
         .bento-grid {
             display: grid;
-            /* 4 Columns */
             grid-template-columns: repeat(4, 1fr);
-            /* Rows set automatically, roughly 250px high */
             grid-auto-rows: 250px;
             gap: 20px;
         }
@@ -122,7 +153,6 @@
             position: relative;
         }
 
-        /* Content styling within grid items */
         .item-text-content {
             padding: 30px;
             height: 100%;
@@ -149,9 +179,9 @@
             color: var(--text-muted);
         }
 
-        /* --- GRID SPANNING UTILITIES (To create the varied sizes) --- */
-        .span-row-2 { grid-row: span 2; } /* Makes an item 2 rows tall */
-        .span-col-2 { grid-column: span 2; } /* Makes an item 2 columns wide */
+        /* --- GRID SPANNING UTILITIES --- */
+        .span-row-2 { grid-row: span 2; }
+        .span-col-2 { grid-column: span 2; }
 
         /* --- FOOTER --- */
         footer {
@@ -163,57 +193,6 @@
             border-top: 1px solid #333;
         }
 
-        /* --- SOCIAL LINKS STYLING --- */
-/* --- SOCIAL LINKS (HIGH CONTRAST VERSION) --- */
-.social-links {
-    display: flex;
-    gap: 15px;
-    margin-top: 30px;
-    flex-wrap: wrap;
-}
-
-.social-btn {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    text-decoration: none;
-    
-    /* Stronger Colors */
-    background-color: rgba(255, 255, 255, 0.1); /* Slight white fill */
-    border: 1px solid #ffffff; /* Solid white border (No transparency) */
-    color: #ffffff;
-    
-    padding: 12px 28px; /* Slightly bigger touch target */
-    border-radius: 50px;
-    font-size: 0.95rem;
-    font-weight: 600; /* Bolder text */
-    letter-spacing: 0.5px;
-    transition: all 0.3s ease;
-}
-
-.social-btn svg {
-    transition: transform 0.3s ease;
-}
-
-/* Hover Effects - Turns Solid White */
-.social-btn:hover {
-    background-color: #ffffff;
-    color: #000000; /* Text turns black */
-    border-color: #ffffff;
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2); /* Glow effect */
-}
-
-.social-btn:hover svg {
-    transform: scale(1.1);
-}
-
-/* Animation Delay */
-.fade-in-delay {
-    animation: fadeInUp 1.2s ease-out 0.9s forwards;
-    opacity: 0;
-}
-
         /* --- MOBILE RESPONSIVE --- */
         @media (max-width: 900px) {
             .hero-text h1 { font-size: 3.5rem; }
@@ -224,15 +203,18 @@
                 gap: 40px;
                 min-height: auto;
             }
-            /* Put image on top on mobile */
-            .hero-image-container { order: -1; aspect-ratio: 4/5; }
+            
+            /* Fix: Ensure image is TALL (portrait) on mobile */
+            .hero-image-container { 
+                order: -1; 
+                aspect-ratio: 4/5; 
+            }
 
             /* Collapse the bento grid into a single column stack */
             .bento-grid {
                 grid-template-columns: 1fr;
-                grid-auto-rows: 300px; /* Fixed height for mobile items */
+                grid-auto-rows: 300px;
             }
-            /* Reset spans so everything is 1x1 on mobile */
             .span-row-2, .span-col-2 {
                 grid-row: span 1;
                 grid-column: span 1;
@@ -253,24 +235,20 @@
                 <div class="hero-subtext">
                     A little corner of the internet for the most cultured head of culture.
                 </div>
+
+                <div class="social-links">
+                    <a href="https://www.instagram.com/nurabentata/" target="_blank" class="social-btn">
+                        <span>Instagram</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/nura-bentata-506805286/" target="_blank" class="social-btn">
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://www.facebook.com/nurabentata" target="_blank" class="social-btn">
+                        <span>Facebook</span>
+                    </a>
+                </div>
             </div>
             
-            <div class="social-links fade-in-delay">
-    <a href="www.instagram.com/nurabentata/" target="_blank" class="social-btn">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-        <span>Instagram</span>
-    </a>
-
-    <a href="https://www.linkedin.com/in/nura-bentata-506805286/" target="_blank" class="social-btn">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-        <span>LinkedIn</span>
-    </a>
-
-    <a href="https://www.facebook.com/nurabentata" target="_blank" class="social-btn">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-        <span>Facebook</span>
-    </a>
-</div>
             <div class="hero-image-container">
                 <img src="Screenshot 2025-12-11 at 20.00.23.png">
             </div>
